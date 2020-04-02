@@ -64,7 +64,7 @@ export default {
   data () {
     return {
       words: '',
-      openid: "",
+      openid: '',
       hotData: [],
       historyData: [],
       tipsData: [],
@@ -108,13 +108,13 @@ export default {
       this.tipsData = data.keywords
     },
     async searchWords(e) {
-      let value = e.target.value
+      let value = e.currentTarget.dataset.value
       this.words = value || this.words
-      const data = await post('/search/addHistoryAction', {
-        'openId': this.openid,
-        'keyword': value || this.words
+      const data = await post('/search/addhistoryaction', {
+        openId: this.openid,
+        keyword: value || this.words
       })
-      console.log(data)
+      // console.log(data)
       // 获取历史数据
       this.getHotData()
       this.getlistData()

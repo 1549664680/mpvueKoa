@@ -1,12 +1,10 @@
 {
-  "pages": [
-    "pages/goods/main",
-    "pages/search/main",
+  "pages": [      
+    "pages/cart/main",
+    "pages/addressSelect/main",  
+    "pages/order/main",
     "pages/index/main",
     "pages/categroylist/main",
-    "pages/cart/main",
-    "pages/addressSelect/main",
-    "pages/order/main",
     "pages/category/main",
     "pages/my/main",
     "pages/mappage/main",
@@ -14,6 +12,8 @@
     "pages/newgoods/main",
     "pages/topicdetail/main",
     "pages/addaddress/main" ,
+    "pages/goods/main",
+    "pages/search/main",
      "pages/topic/main"
   ],
   "window": {

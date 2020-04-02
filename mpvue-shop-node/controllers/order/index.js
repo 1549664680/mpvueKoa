@@ -42,6 +42,36 @@ async function submitAction (ctx){
     }
   }
 }
+async function detailAction (ctx) {
+  const  openId = ctx.query.openId
+  const addressId = ctx.query.addressId || ' '
+  const orderDetail = await mysql('nideshop_order').where({
+    'user_id':openId
+  }).select()
+  var goodsIds = orderDetail[0].goods_id.split(',')
+  // console.log(goodsIds)
+  const list = await mysql('nideshop_cart').andWhere({
+    'user_id':openId
+  }).whereIn('goods_id',goodsIds).select()
+  // console.log(list)
+  var addressList;
+  if(addressId){
+    addressList = await mysql('nideshop_address').where({
+      'user_id':openId,
+      'id':addressId
+    }).orderBy('is_default','desc').select()
+  }else{
+    addressList = await mysql('nideshop_address').where({
+      'user_id':openId,
+    }).orderBy('is_default','desc').select()
+  }
+  ctx.body = {
+    price:orderDetail[0].allprice,
+    goodsList:list,
+    address:addressList[0] || {}
+  }
+}
 module.exports = {
-  submitAction
+  submitAction,
+  detailAction
 }

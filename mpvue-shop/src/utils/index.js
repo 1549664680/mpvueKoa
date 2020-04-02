@@ -65,7 +65,7 @@ export function getStorageOpenid() {
   if (openId) {
     return openId
   } else {
-    return ''
+    return 'wx21b80689ffbaa708'
   }
 }
   

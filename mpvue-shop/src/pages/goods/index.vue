@@ -177,25 +177,32 @@ export default {
         this.showpop = true
       }
     },
-    async addCart(){
-      if(this.showpop){
-        this.allnumber = this.allnumber + this.number
-        if(this.number == 0){
+    async addCart () {
+      if (this.showpop) {
+        if (this.number == 0) {
           wx.showToast({
-            title:'请选择商品数量',
-            duration:2000,
-            icon:'none',
-            mask:true,
-            success:res => {}
+            title: '请选择商品数量',
+            duration: 2000,
+            icon: 'none',
+            mask: true,
+            success: res => {}
           })
           return false
         }
-        const data = await post('/cart/addCart',{
-          openId:this.openId,
-          goodsId:this.goodsId,
-          number:this.number
+        const data = await post('/cart/addCart', {
+          openId: this.openId,
+          goodsId: this.goodsId,
+          number: this.number
         })
-      }else{
+        if (data) {
+          this.allnumber = this.allnumber + this.number
+          wx.showToast({
+            title: '添加购物车成功',
+            icon: 'success',
+            duration: 1500
+          })
+        }
+      } else {
         this.showpop = true
       }
     },
