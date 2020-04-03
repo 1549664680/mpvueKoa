@@ -6,7 +6,7 @@
           <div class="addresslist">
             <div>
               <span>{{address.name}}</span>
-              <div class="moren">默认</div>
+              <div :class="{'moren':moren}">{{moren}}</div>
             </div>
             <div class="info">
               <p>{{address.mobile}}</p>
@@ -70,7 +70,8 @@ export default {
       allprice: '',
       openId: '',
       addressId: '',
-      listData: []
+      listData: [],
+      moren:''
     }
   },
   onShow () {
@@ -96,11 +97,12 @@ export default {
         openId: this.openId,
         addressId: this.addressId
       })
-      console.log(data)
+      console.log(data,'==')
       if (data) {
         // this.allprice = data.price
         this.listData = data.goodsList
         this.address = data.address
+        if(this.address.is_default){this.moren = '默认'}else{this.moren = ''}
       }
       this.allprice = 0
       this.listData.map((item) => {
