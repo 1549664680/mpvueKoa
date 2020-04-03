@@ -12,11 +12,13 @@
               <p>{{address.mobile}}</p>
               <p>{{address.address+address.address_detail}}</p>
             </div>
+            <div></div>
           </div>
         </div>
       </div>
     </div>
-    <div class="seladdress" v-else @click="toAdd">请选择默认地址</div>    
+    <div class="seladdress" v-else @click="toAdd">请选择默认地址</div>
+
     <div class="orderbox">
       <div class="item">
         <div>商品合计</div>
@@ -100,6 +102,7 @@ export default {
         this.listData = data.goodsList
         this.address = data.address
       }
+      this.allprice = 0
       this.listData.map((item) => {
         this.allprice = Number(item.retail_price * item.number) + Number(this.allprice)
       })
