@@ -1,11 +1,11 @@
 {
   "pages": [     
-    "pages/categorylist/main",
+    "pages/topic/main",
     "pages/index/main",     
     "pages/cart/main",
     "pages/addressSelect/main",  
     "pages/order/main",
-
+    "pages/categorylist/main",
     "pages/category/main",
     "pages/my/main",
     "pages/mappage/main",
@@ -14,8 +14,8 @@
     "pages/topicdetail/main",
     "pages/addaddress/main" ,
     "pages/goods/main",
-    "pages/search/main",
-     "pages/topic/main"
+    "pages/search/main"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
