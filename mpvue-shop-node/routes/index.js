@@ -28,6 +28,8 @@ router.get('/address/detailAction',controllers.address.index.detailAction)
 router.post('/address/saveAction',controllers.address.index.saveAction)
 // 类别相关
 router.get('/category/categoryNav',controllers.category.index.categoryNav)
+router.get('/category/indexaction', controllers.category.index.indexAction)
+router.get('/category/currentaction', controllers.category.index.currentAction)
 // 专题接口
 router.get('/topic/listaction', controllers.topic.index.listAction)
 router.get('/topic/detailaction', controllers.topic.index.detailAction)
